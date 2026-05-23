@@ -1,4 +1,10 @@
+# Cloudflare Pages ignore file
+
+# This is the important one — ignores the entire Git history (fixes the 47MB error)
 .git
+
+# Ignore other common junk files
 .gitattributes
 .gitignore
 .DS_Store
+Thumbs.db
