@@ -5,6 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Cody Winesett | Product Design Leader</title>
   <meta name="description" content="Portfolio for Cody Winesett, product design leader focused on enterprise UX, design systems, and AI-assisted delivery.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Cody Winesett">
+  <meta property="og:title" content="Cody Winesett | Product Design Leader">
+  <meta property="og:description" content="Portfolio for Cody Winesett, product design leader focused on enterprise UX, design systems, and AI-assisted delivery.">
+  <meta property="og:url" content="https://winesett.com/">
+  <meta property="og:image" content="https://winesett.com/assets/social-card.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Cody Winesett portfolio preview">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Cody Winesett | Product Design Leader">
+  <meta name="twitter:description" content="Portfolio for Cody Winesett, product design leader focused on enterprise UX, design systems, and AI-assisted delivery.">
+  <meta name="twitter:image" content="https://winesett.com/assets/social-card.png">
+  <meta name="twitter:image:alt" content="Cody Winesett portfolio preview">
   <style>
     :root {
       color-scheme: light;
@@ -296,6 +310,69 @@
       border-bottom: 1px solid var(--line);
     }
 
+    .about-copy.reveal-item > div,
+    .about-copy.reveal-item .about-photo,
+    .work-item.reveal-item .work-image,
+    .work-item.reveal-item .work-copy {
+      transition:
+        opacity 884ms ease,
+        transform 988ms cubic-bezier(0.22, 1, 0.36, 1);
+      will-change: opacity, transform;
+    }
+
+    .reveal-item .pen-note {
+      opacity: 0;
+      transform: translateY(12px);
+      transition:
+        opacity 780ms ease,
+        transform 900ms cubic-bezier(0.22, 1, 0.36, 1);
+      transition-delay: 360ms;
+      will-change: opacity, transform;
+    }
+
+    .bio-copy.reveal-item .pen-note {
+      transition-delay: 80ms;
+    }
+
+    .reveal-item.is-visible .pen-note {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .work-item.reveal-item:first-child .work-image {
+      transition-delay: 600ms;
+    }
+
+    .work-item.reveal-item:first-child .work-copy {
+      transition-delay: 720ms;
+    }
+
+    .about-copy.reveal-item > div,
+    .about-copy.reveal-item .about-photo,
+    .work-item.reveal-item .work-image,
+    .work-item.reveal-item .work-copy {
+      opacity: 0;
+    }
+
+    .about-copy.reveal-item > div,
+    .work-item.reveal-item .work-image {
+      transform: translateX(-28px);
+    }
+
+    .about-copy.reveal-item .about-photo,
+    .work-item.reveal-item .work-copy {
+      transform: translateX(28px);
+      transition-delay: 117ms;
+    }
+
+    .about-copy.reveal-item.is-visible > div,
+    .about-copy.reveal-item.is-visible .about-photo,
+    .work-item.reveal-item.is-visible .work-image,
+    .work-item.reveal-item.is-visible .work-copy {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
     .work-image {
       position: relative;
       min-height: 230px;
@@ -579,6 +656,13 @@
         min-height: 210px;
       }
 
+      .about-copy.reveal-item > div,
+      .about-copy.reveal-item .about-photo,
+      .work-item.reveal-item .work-image,
+      .work-item.reveal-item .work-copy {
+        transform: translateY(26px);
+      }
+
       .metric-list {
         grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 14px;
@@ -590,6 +674,20 @@
 
       .site-footer {
         display: grid;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .work-item.reveal-item,
+      .about-copy.reveal-item,
+      .reveal-item .pen-note,
+      .about-copy.reveal-item > div,
+      .about-copy.reveal-item .about-photo,
+      .work-item.reveal-item .work-image,
+      .work-item.reveal-item .work-copy {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
       }
     }
   </style>
@@ -607,7 +705,7 @@
 
   <main id="main">
     <section class="bio-hero">
-      <div class="bio-copy">
+      <div class="bio-copy reveal-item">
         <h1>Product <span class="marker-highlight">Design Leader</span></h1>
         <span class="pen-layer" aria-hidden="true"><svg viewBox="0 0 184 24"><path d="M4 14 C46 13 86 11 128 14 C146 15 165 16 180 13"></path></svg></span>
         <span class="pen-layer" aria-hidden="true"><svg class="pen-note-arrow" viewBox="0 0 62 38"><path d="M3 6 C16 29 38 33 58 19"></path><path d="M50 16 L59 19 L54 28"></path></svg></span>
@@ -634,7 +732,7 @@
     <section id="work" class="section" aria-labelledby="work-heading">
       <h2 id="work-heading">Selected work</h2>
       <div class="work-list">
-        <article class="work-item">
+        <article class="work-item reveal-item">
           <div class="work-image" aria-hidden="true">
             <img src="./assets/work/microsoft-work-artifact.png" alt="">
           </div>
@@ -646,7 +744,7 @@
           </div>
         </article>
 
-        <article class="work-item">
+        <article class="work-item reveal-item">
           <img class="pen-note" src="./assets/annotations/note-millions.png" alt="" aria-hidden="true">
           <div class="work-image" aria-hidden="true">
             <img src="./assets/work/fedex-work-artifact.png" alt="">
@@ -659,7 +757,7 @@
           </div>
         </article>
 
-        <article class="work-item">
+        <article class="work-item reveal-item">
           <div class="work-image" aria-hidden="true">
             <img src="./assets/work/trueblue-work-artifact.png" alt="">
           </div>
@@ -674,7 +772,7 @@
     </section>
 
     <section id="about" class="section" aria-label="Bio">
-      <div class="about-copy">
+      <div class="about-copy reveal-item">
         <img class="pen-note" src="./assets/annotations/note-mvp.png" alt="" aria-hidden="true">
         <div>
           <h2>About me</h2>
@@ -693,5 +791,37 @@
       <a class="footer-email" href="mailto:codywinesett@gmail.com">codywinesett@gmail.com<span class="pen-layer" aria-hidden="true"><svg viewBox="0 0 188 12" preserveAspectRatio="none"><path class="pen-light" d="M2 8 C44 6 88 7 132 6 C152 6 170 7 186 5"></path></svg></span></a>
     </div>
   </footer>
+  <script>
+    const revealItems = Array.from(document.querySelectorAll(".reveal-item"));
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    function showVisibleItems() {
+      revealItems.forEach((item) => {
+        const rect = item.getBoundingClientRect();
+        if (rect.top < window.innerHeight * 0.88 && rect.bottom > window.innerHeight * 0.08) {
+          item.classList.add("is-visible");
+        }
+      });
+    }
+
+    if (prefersReducedMotion) {
+      revealItems.forEach((item) => item.classList.add("is-visible"));
+    } else if ("IntersectionObserver" in window) {
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+          } else if (entry.boundingClientRect.top > 0) {
+            entry.target.classList.remove("is-visible");
+          }
+        });
+      }, { rootMargin: "0px 0px -16% 0px", threshold: 0.18 });
+
+      revealItems.forEach((item) => revealObserver.observe(item));
+    } else {
+      window.addEventListener("scroll", showVisibleItems, { passive: true });
+      showVisibleItems();
+    }
+  </script>
 </body>
 </html>
