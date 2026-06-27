@@ -600,6 +600,10 @@
       height: 12px;
     }
 
+    .desktop-break {
+      display: block;
+    }
+
     @media (max-width: 760px) {
       .site-header,
       .site-footer,
@@ -654,6 +658,10 @@
 
       .work-image {
         min-height: 210px;
+      }
+
+      .desktop-break {
+        display: inline;
       }
 
       .work-item.reveal-item:first-child .work-image {
@@ -759,7 +767,7 @@
           </div>
           <div class="work-copy">
             <h3>FedEx fdx</h3>
-            <p>Leading design on a commerce platform now reaching<br><span class="marker-highlight">millions of consumers</span></p>
+            <p>Leading design on a commerce platform now reaching<span class="desktop-break"> </span><span class="marker-highlight">millions of consumers</span></p>
             <p>I led design from ideation to MVP on FedEx&rsquo;s fdx platform, a data-driven commerce product built to connect merchants to the full FedEx network. Research, personas, design system, end to end.</p>
             <span class="work-cta">Case study available on request</span>
           </div>
