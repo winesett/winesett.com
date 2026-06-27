@@ -3,12 +3,695 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Cody Winesett</title>
+  <title>Cody Winesett | Product Design Leader</title>
+  <meta name="description" content="Portfolio for Cody Winesett, product design leader focused on enterprise UX, design systems, and AI-assisted delivery.">
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #ffffff;
+      --paper: #ffffff;
+      --paper-deep: #f5f5f5;
+      --text: #1d1d1f;
+      --muted: #707070;
+      --quiet: #9a9a9a;
+      --line: #e4e4e4;
+      --line-dark: #c8c8c8;
+      --accent: #4b4b4b;
+      --hover: #2f2f2f;
+      --max: 1120px;
+      --gutter: clamp(20px, 6.9vw, 93.5px);
+      --sans: "Segoe UI", SegoeUI, -apple-system, BlinkMacSystemFont, Arial, Helvetica, sans-serif;
+      --shadow: 0 18px 52px rgba(0, 0, 0, 0.07);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      overflow-x: hidden;
+      background:
+        linear-gradient(rgba(29, 29, 31, 0.026) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(29, 29, 31, 0.026) 1px, transparent 1px),
+        var(--bg);
+      background-size: 48px 48px;
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    .pen-layer {
+      position: absolute;
+      inset: 0;
+      z-index: 4;
+      overflow: visible;
+      pointer-events: none;
+    }
+
+    .pen-layer svg {
+      position: absolute;
+      overflow: visible;
+      fill: none;
+      stroke: rgba(18, 18, 18, 0.82);
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-width: 2.2;
+      vector-effect: non-scaling-stroke;
+    }
+
+    .pen-layer .pen-light {
+      stroke: rgba(18, 18, 18, 0.7);
+      stroke-width: 1.8;
+    }
+
+    .pen-layer .pen-fine {
+      stroke-width: 1.5;
+    }
+
+    .marker-highlight {
+      --marker-ink: rgba(255, 216, 48, 0.66);
+      position: relative;
+      z-index: 0;
+      background: none;
+      box-decoration-break: clone;
+      -webkit-box-decoration-break: clone;
+      padding: 0 0.06em;
+    }
+
+    .marker-highlight--soft {
+      --marker-ink: rgba(255, 216, 48, 0.52);
+    }
+
+    .marker-highlight::before,
+    .marker-highlight::after {
+      content: "";
+      position: absolute;
+      left: -0.08em;
+      right: -0.08em;
+      z-index: -1;
+      pointer-events: none;
+      background: var(--marker-ink);
+      mix-blend-mode: multiply;
+      transform-origin: center;
+    }
+
+    .marker-highlight::before {
+      bottom: 0.02em;
+      height: 0.34em;
+      border-radius: 57% 43% 50% 46% / 44% 52% 48% 56%;
+      transform: rotate(-1.1deg) skewX(-7deg);
+      opacity: 0.86;
+    }
+
+    .marker-highlight::after {
+      left: 0.02em;
+      right: -0.12em;
+      bottom: -0.02em;
+      height: 0.16em;
+      border-radius: 48% 58% 43% 55% / 58% 42% 54% 44%;
+      transform: rotate(0.7deg) skewX(5deg);
+      opacity: 0.58;
+    }
+
+    .pen-note {
+      position: absolute;
+      z-index: 5;
+      display: block;
+      width: 180px;
+      height: auto;
+      mix-blend-mode: multiply;
+      filter: contrast(1.55) brightness(1.12);
+      pointer-events: none;
+    }
+
+    .pen-note-arrow {
+      display: none;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    a:hover,
+    a:focus-visible {
+      color: var(--hover);
+    }
+
+    a:focus-visible {
+      outline: 2px solid var(--text);
+      outline-offset: 4px;
+    }
+
+    p,
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: var(--gutter);
+      top: 10px;
+      z-index: 20;
+      transform: translateY(-140%);
+      padding: 10px 14px;
+      background: var(--text);
+      color: var(--paper);
+      font-size: 13px;
+      transition: transform 160ms ease;
+    }
+
+    .skip-link:focus { transform: translateY(0); }
+
+    .site-header,
+    .site-footer,
+    .bio-hero,
+    .section {
+      width: min(var(--max), calc(100% - var(--gutter) * 2));
+      margin-right: auto;
+      margin-left: auto;
+    }
+
+    .site-header {
+      position: relative;
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 24px 0;
+    }
+
+    .brand {
+      position: relative;
+      font-size: 0.95rem;
+      font-weight: 700;
+    }
+
+    .site-nav,
+    .footer-links {
+      position: relative;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .footer-email {
+      position: relative;
+    }
+
+    .bio-hero {
+      position: relative;
+      display: block;
+      padding: 42px 0 54px;
+    }
+
+    h1 {
+      position: relative;
+      max-width: 930px;
+      font-size: clamp(2rem, 3.25vw, 46px);
+      line-height: 1.06;
+      letter-spacing: -0.015em;
+      font-weight: 700;
+    }
+
+    .title-line {
+      display: block;
+      margin-top: 6px;
+      color: var(--muted);
+    }
+
+    .bio-copy > p {
+      max-width: 920px;
+      margin-top: 24px;
+      color: var(--muted);
+      font-size: 1.12rem;
+    }
+
+    .section {
+      padding: 42px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .logo-section {
+      position: relative;
+      border-top: 0;
+      padding-top: 20px;
+    }
+
+    .logo-section + .section {
+      border-top: 0;
+    }
+
+    #about {
+      border-top: 0;
+    }
+
+    h2 {
+      margin-bottom: 28px;
+      color: var(--text);
+      font-size: 0.9rem;
+      line-height: 1.2;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .logo-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: clamp(26px, 5vw, 58px);
+      align-items: center;
+    }
+
+    .logo-grid img {
+      width: 100%;
+      height: 58px;
+      object-fit: contain;
+    }
+
+    .work-list {
+      border-top: 0;
+    }
+
+    .work-item {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(260px, 0.9fr) minmax(0, 1fr);
+      gap: clamp(18px, 3vw, 40px);
+      align-items: center;
+      padding: 30px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .work-image {
+      position: relative;
+      min-height: 230px;
+      overflow: hidden;
+      display: flex;
+      align-items: stretch;
+      border: 1px solid var(--line);
+      background: var(--paper-deep);
+      box-shadow: var(--shadow);
+    }
+
+    .work-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 220ms ease;
+      will-change: transform;
+    }
+
+    .work-copy h3 {
+      position: relative;
+      color: var(--text);
+      font-size: 1.35rem;
+      line-height: 1.25;
+    }
+
+    .work-copy p {
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .work-copy p:first-of-type {
+      color: var(--text);
+      font-size: 1.05rem;
+      font-weight: 600;
+    }
+
+    .work-copy p:last-of-type {
+      max-width: 650px;
+      margin-top: 14px;
+    }
+
+    .work-cta {
+      display: inline-flex;
+      width: fit-content;
+      margin-top: 18px;
+      padding-bottom: 5px;
+      color: var(--muted);
+      font-size: 0.88rem;
+      font-weight: 700;
+    }
+
+    .metric-list {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0;
+      margin-top: 20px;
+      border-top: 1px solid var(--line-dark);
+    }
+
+    .metric {
+      padding: 14px 16px 0 0;
+    }
+
+    .metric strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--accent);
+      font-size: 1.08rem;
+      font-weight: 700;
+      line-height: 1.1;
+    }
+
+    .metric small {
+      display: block;
+      color: var(--muted);
+      font-size: 0.76rem;
+      line-height: 1.35;
+    }
+
+    .about-copy {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 330px;
+      gap: clamp(28px, 5vw, 72px);
+      align-items: center;
+    }
+
+    .about-copy p {
+      max-width: 780px;
+      color: var(--muted);
+    }
+
+    .about-copy p + p {
+      margin-top: 14px;
+    }
+
+    .about-photo {
+      width: 100%;
+      height: auto;
+    }
+
+    .site-footer {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 24px;
+      padding: 34px 0;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .brand .pen-layer svg {
+      left: -1px;
+      bottom: -8px;
+      width: 86px;
+      height: 14px;
+      stroke: rgba(255, 216, 48, 0.72);
+      stroke-width: 6;
+    }
+
+    .site-nav .pen-layer svg {
+      left: -6px;
+      bottom: -9px;
+      width: 38px;
+      height: 15px;
+      stroke: rgba(255, 216, 48, 0.72);
+      stroke-width: 5;
+    }
+
+    .bio-hero .pen-layer svg {
+      display: none;
+    }
+
+    .bio-hero .pen-note {
+      right: 2%;
+      top: 174px;
+      width: 300px;
+    }
+
+    .bio-hero .pen-note-arrow {
+      right: calc(18% + 118px);
+      top: 92px;
+      width: 62px;
+      height: 38px;
+    }
+
+    .logo-section .pen-layer {
+      display: none;
+    }
+
+    .work-item:nth-child(1) .pen-arrow {
+      left: -54px;
+      top: 122px;
+      width: 82px;
+      height: 56px;
+    }
+
+    .work-item:nth-child(1) .pen-bracket {
+      display: none;
+    }
+
+    .work-item:nth-child(1) .pen-burst {
+      display: none;
+    }
+
+    .work-item:nth-child(1) .pen-star {
+      left: -48px;
+      top: 62px;
+      width: 34px;
+      height: 34px;
+    }
+
+    .work-item:nth-child(2) .pen-circle {
+      display: none;
+    }
+
+    .work-item:nth-child(2) .pen-note {
+      right: -166px;
+      top: 188px;
+      width: 220px;
+    }
+
+    .work-item:nth-child(2) .pen-note-arrow {
+      right: 124px;
+      top: 104px;
+      width: 76px;
+      height: 34px;
+    }
+
+    .work-item:nth-child(3) .pen-layer svg {
+      display: none;
+    }
+
+    #about .pen-circle {
+      display: none;
+    }
+
+    #about .pen-arrow {
+      right: 230px;
+      top: 154px;
+      width: 86px;
+      height: 44px;
+      transform: rotate(4deg);
+    }
+
+    #about .pen-burst {
+      display: none;
+    }
+
+    #about .pen-note {
+      right: -159px;
+      top: 196px;
+      width: 274px;
+    }
+
+    .footer-email .pen-layer svg {
+      right: -2px;
+      bottom: -11px;
+      width: calc(100% + 4px);
+      height: 12px;
+    }
+
+    @media (max-width: 760px) {
+      .site-header,
+      .site-footer,
+      .bio-hero,
+      .section {
+        width: min(100% - 32px, var(--max));
+      }
+
+      .site-header {
+        min-height: 64px;
+        padding: 20px 0;
+      }
+
+      .pen-layer,
+      .pen-note {
+        display: none;
+      }
+
+      .work-item,
+      .about-copy {
+        grid-template-columns: 1fr;
+      }
+
+      .bio-hero {
+        padding: 28px 0 42px;
+      }
+
+      .logo-section {
+        padding: 14px 0 34px;
+      }
+
+      .logo-grid {
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+        gap: 22px 18px;
+      }
+
+      .logo-grid img {
+        justify-self: center;
+        grid-column: span 2;
+        width: min(100%, 112px);
+        height: 36px;
+      }
+
+      .logo-grid img:nth-child(4) {
+        grid-column: 2 / span 2;
+      }
+
+      .logo-grid img:nth-child(5) {
+        grid-column: 4 / span 2;
+        width: 92px;
+      }
+
+      .work-image {
+        min-height: 210px;
+      }
+
+      .metric-list {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .metric {
+        padding-right: 0;
+      }
+
+      .site-footer {
+        display: grid;
+      }
+    }
+  </style>
 </head>
 <body>
-  <main>
-    <h1>Cody Winesett</h1>
-    <p>New portfolio in progress.</p>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <a class="brand" href="./index.html">Cody Winesett<span class="pen-layer" aria-hidden="true"><svg viewBox="0 0 86 14"><path class="pen-light" d="M2 9 C24 6 48 7 84 8"></path></svg></span></a>
+    <nav class="site-nav" aria-label="Primary navigation">
+      <a href="#work">Work</a>
+      <a href="#about">Bio</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="bio-hero">
+      <div class="bio-copy">
+        <h1>Product <span class="marker-highlight">Design Leader</span></h1>
+        <span class="pen-layer" aria-hidden="true"><svg viewBox="0 0 184 24"><path d="M4 14 C46 13 86 11 128 14 C146 15 165 16 180 13"></path></svg></span>
+        <span class="pen-layer" aria-hidden="true"><svg class="pen-note-arrow" viewBox="0 0 62 38"><path d="M3 6 C16 29 38 33 58 19"></path><path d="M50 16 L59 19 L54 28"></path></svg></span>
+        <img class="pen-note" src="./assets/annotations/note-impact.png" alt="" aria-hidden="true">
+        <p>I build products and teams that reach billions of users. From the delivery system behind Microsoft.com to a commerce platform serving millions of FedEx consumers, across hundreds of brands and web products.<br>Now I&rsquo;m using AI to change how that work gets done.</p>
+      </div>
+    </section>
+
+    <section class="section logo-section" aria-labelledby="teams-heading">
+      <h2 id="teams-heading">Teams I&rsquo;ve worked with</h2>
+      <span class="pen-layer" aria-hidden="true">
+        <svg class="pen-circle" viewBox="0 0 212 78"><path d="M110 5 C158 6 207 25 204 44 C201 65 150 76 92 72 C38 68 5 56 8 37 C11 17 52 3 110 5"></path></svg>
+        <svg class="pen-burst" viewBox="0 0 28 44"><path class="pen-light" d="M22 4 L17 15"></path><path class="pen-light" d="M9 10 L16 19"></path><path class="pen-light" d="M3 25 L14 25"></path></svg>
+      </span>
+      <div class="logo-grid">
+        <img src="./assets/work/microsoft-logo.png" alt="Microsoft">
+        <img src="./assets/work/copilot-logo.png" alt="Microsoft Copilot">
+        <img src="./assets/work/fedex-logo.png" alt="FedEx">
+        <img src="./assets/work/peopleready-logo.png" alt="PeopleReady">
+        <img src="./assets/work/senco-logo.png" alt="SENCO">
+      </div>
+    </section>
+
+    <section id="work" class="section" aria-labelledby="work-heading">
+      <h2 id="work-heading">Selected work</h2>
+      <div class="work-list">
+        <article class="work-item">
+          <div class="work-image" aria-hidden="true">
+            <img src="./assets/work/microsoft-work-artifact.png" alt="">
+          </div>
+          <div class="work-copy">
+            <h3>Microsoft.com</h3>
+            <p>Building the AI-assisted design engine behind <span class="marker-highlight">1,000+ Microsoft.com pages</span></p>
+            <p>I built a global UX delivery operation from nothing: reusable design accelerators, distributed leadership, and an AI-assisted production workflow that cut production time by 75% while the team supported twice the year-over-year workload.</p>
+            <span class="work-cta">Case study available on request</span>
+          </div>
+        </article>
+
+        <article class="work-item">
+          <img class="pen-note" src="./assets/annotations/note-millions.png" alt="" aria-hidden="true">
+          <div class="work-image" aria-hidden="true">
+            <img src="./assets/work/fedex-work-artifact.png" alt="">
+          </div>
+          <div class="work-copy">
+            <h3>FedEx fdx</h3>
+            <p>Leading design on a commerce platform now reaching<br><span class="marker-highlight">millions of consumers</span></p>
+            <p>I led design from ideation to MVP on FedEx&rsquo;s fdx platform, a data-driven commerce product built to connect merchants to the full FedEx network. Research, personas, design system, end to end.</p>
+            <span class="work-cta">Case study available on request</span>
+          </div>
+        </article>
+
+        <article class="work-item">
+          <div class="work-image" aria-hidden="true">
+            <img src="./assets/work/trueblue-work-artifact.png" alt="">
+          </div>
+          <div class="work-copy">
+            <h3>TrueBlue</h3>
+            <p>Connecting half a million people to work every year</p>
+            <p>I built the design system and products behind PeopleReady, Centerline, and JobStack: three workforce platforms sharing one foundation, shipped fast and scaled across a distributed workforce.</p>
+            <span class="work-cta">Case study available on request</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="about" class="section" aria-label="Bio">
+      <div class="about-copy">
+        <img class="pen-note" src="./assets/annotations/note-mvp.png" alt="" aria-hidden="true">
+        <div>
+          <h2>About me</h2>
+          <p><span class="marker-highlight marker-highlight--soft">Based in Cincinnati, Ohio.</span></p>
+          <p>I lead product design work that has to hold up across messy systems: enterprise stakeholders, distributed teams, evolving platforms, and real launch pressure.</p>
+          <p>Outside work, I travel when I can, remain a sub-par gamer despite repeated attempts to improve, and spend as much time as possible with my dog <span class="marker-highlight marker-highlight--soft">Nugget.</span></p>
+        </div>
+        <img class="about-photo" src="./assets/cody-nugget.png" alt="Cody Winesett with Nugget">
+      </div>
+    </section>
   </main>
+
+  <footer class="site-footer">
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/codywinesett/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a class="footer-email" href="mailto:codywinesett@gmail.com">codywinesett@gmail.com<span class="pen-layer" aria-hidden="true"><svg viewBox="0 0 188 12" preserveAspectRatio="none"><path class="pen-light" d="M2 8 C44 6 88 7 132 6 C152 6 170 7 186 5"></path></svg></span></a>
+    </div>
+  </footer>
 </body>
 </html>

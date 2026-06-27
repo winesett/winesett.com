@@ -4,3 +4,21 @@
 !.dev.vars.example
 .env*
 !.env.example
+
+# macOS
+.DS_Store
+
+# Hold unpublished case studies out of the public repo until approved.
+fedex.html
+microsoft.html
+trueblue.html
+assets/microsoft/
+assets/work/fedex-hero.jpg
+assets/work/fedex-onboarding-flow.png
+assets/work/fedex-personas.png
+assets/work/fedex-spark-dashboard.png
+assets/work/headshot.png
+assets/work/trueblue-hero.jpg
+assets/work/trueblue-jobstack-demo.jpg
+assets/work/workforce-design-system.jpg
+assets/work/workforce-peopleready-live-site.jpg
