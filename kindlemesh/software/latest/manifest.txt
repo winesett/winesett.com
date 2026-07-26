@@ -1,0 +1,4 @@
+kindlemesh_release=1
+version=0.13.0
+archive=kindlemesh-tools-0.13.0.tar
+archive_sha256=442e5e0f309a09034b1156f4e24c110d8fac4263337a46da36d3eb3f9d0059e4
