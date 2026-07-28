@@ -1,0 +1,9 @@
+{
+  "schema": 1,
+  "device_id": "K004",
+  "revision": "REMOTE-TEST-004",
+  "image_url": "https://winesett.com/kindlemesh/K004/current.png",
+  "sha256": "8369a8eaac0e1df98c051d064e5b33fdd215cce9cdd12f373c711f068d07cfbf",
+  "bytes": 32688,
+  "display_mode": "full"
+}
