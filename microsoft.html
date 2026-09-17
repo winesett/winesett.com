@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<title>Microsoft case study — Cody Winesett</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#faf9f6;color:#242424;font-family:Arial,sans-serif;min-height:100svh;display:grid;place-items:center;padding:28px}main{width:100%;max-width:420px}a{color:inherit;text-underline-offset:4px}.brand{font-weight:700;text-decoration:none}.eyebrow{font-size:12px;letter-spacing:.08em;text-transform:uppercase;margin-top:72px;color:#686860}h1{font-family:Georgia,serif;font-size:42px;font-weight:normal;letter-spacing:-1px;margin:16px 0}p{line-height:1.6;color:#686860}label{display:block;margin:30px 0 10px;font-size:14px}input{width:100%;border:1px solid #aaa79f;border-radius:8px;padding:15px;font:24px Arial;letter-spacing:.6em;background:white}input:focus{outline:2px solid #285c45;outline-offset:3px}button{margin-top:16px;width:100%;border:0;border-radius:8px;background:#244f3d;color:white;padding:17px;font:600 16px Arial;cursor:pointer}button:disabled{opacity:.65;cursor:wait}#status{min-height:48px;font-size:14px}small{display:block;margin-top:34px;color:#686860}
+</style>
+</head>
+<body><main><a class="brand" href="/">Cody Winesett</a><p class="eyebrow">Selected work / Private case study</p><h1>Microsoft.com</h1><p>Enter the four-digit access code to view this case study.</p><form id="unlock"><label for="code">Access code</label><input id="code" type="password" inputmode="numeric" pattern="[0-9]{4}" minlength="4" maxlength="4" autocomplete="off" required autofocus><button type="submit">View case study</button><p id="status" role="status" aria-live="polite"></p></form><small><a href="/">Back to portfolio</a></small></main>
+<script>
+const form = document.querySelector('form'), input = document.querySelector('input'), button = document.querySelector('button'), status = document.querySelector('#status');
+const bytes = text => Uint8Array.from(atob(text), c => c.charCodeAt(0));
+form.addEventListener('submit', async event => {
+ event.preventDefault(); button.disabled = true; status.textContent = 'Opening case study…';
+ try {
+  const response = await fetch('/assets/microsoft-case-study.bin');
+  if (!response.ok) throw new Error('load');
+  const payload = new Uint8Array(await response.arrayBuffer());
+  const material = await crypto.subtle.importKey('raw', new TextEncoder().encode(input.value), 'PBKDF2', false, ['deriveKey']);
+  const key = await crypto.subtle.deriveKey({name:'PBKDF2',salt:payload.slice(0,16),iterations:600000,hash:'SHA-256'}, material, {name:'AES-GCM',length:256}, false, ['decrypt']);
+  let compressed;
+  try { compressed = await crypto.subtle.decrypt({name:'AES-GCM',iv:payload.slice(16,28)}, key, payload.slice(28)); }
+  catch { throw new Error('code'); }
+  const text = await new Response(new Blob([compressed]).stream().pipeThrough(new DecompressionStream('gzip'))).text();
+  const bundle = JSON.parse(text);
+  let html = bundle.html;
+  for (const [path, asset] of Object.entries(bundle.assets)) html = html.split(path).join(URL.createObjectURL(new Blob([bytes(asset.data)], {type:asset.type})));
+  html = html.replace('</head>', '<meta name="robots" content="noindex,nofollow,noarchive"></head>');
+  input.value = '';
+  document.open(); document.write(html); document.close();
+ } catch (error) {
+  status.textContent = error.message === 'code' ? 'That code didn’t match. Please try again.' : 'Unable to open the case study. Please refresh and try again.';
+  button.disabled = false; input.focus(); input.select();
+ }
+});
+</script></body></html>

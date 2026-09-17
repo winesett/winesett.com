@@ -1,0 +1,15 @@
+import { readFileSync, writeFileSync } from 'node:fs';
+import { dirname, resolve, extname } from 'node:path';
+import { randomBytes, pbkdf2Sync, createCipheriv } from 'node:crypto';
+import { gzipSync } from 'node:zlib';
+const [source] = process.argv.slice(2);
+const pin = process.env.CASE_STUDY_CODE;
+if (!source || !/^\d{4}$/.test(pin || '')) throw new Error('Provide source HTML and CASE_STUDY_CODE (four digits).');
+const html = readFileSync(source, 'utf8');
+const paths = [...new Set(html.match(/\.\/assets\/microsoft\/[^"')]+/g))];
+const assets = Object.fromEntries(paths.map(path => [path, {type: extname(path) === '.png' ? 'image/png' : 'image/jpeg', data: readFileSync(resolve(dirname(source), path)).toString('base64')}]));
+const salt = randomBytes(16), iv = randomBytes(12);
+const cipher = createCipheriv('aes-256-gcm', pbkdf2Sync(pin, salt, 600000, 32, 'sha256'), iv);
+const encrypted = Buffer.concat([cipher.update(gzipSync(JSON.stringify({html, assets}))), cipher.final(), cipher.getAuthTag()]);
+writeFileSync('assets/microsoft-case-study.bin', Buffer.concat([salt, iv, encrypted]));
+console.log(`Packaged case study and ${paths.length} images; no plaintext case-study files copied.`);

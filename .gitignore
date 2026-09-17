@@ -10,7 +10,7 @@
 
 # Hold unpublished case studies out of the public repo until approved.
 fedex.html
-microsoft.html
+# microsoft.html contains only the access screen; case study is encrypted.
 trueblue.html
 assets/microsoft/
 assets/work/fedex-hero.jpg
