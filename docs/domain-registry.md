@@ -28,18 +28,26 @@ The portfolio's `wrangler.jsonc` identifies Pages project `winesett` and output 
 | `www.proxyxr.com` | portfolio | Existing domain binding | Active, SSL enabled | 2026-10-16 |
 | `labs.winesett.com` | labs | Creative studio | Live, HTTPS and Git deployment verified | 2026-10-16 |
 
-Portfolio binding states were read from Cloudflare Pages → winesett → Custom domains. This records bindings, not an assumption that alternate domains redirect. Mail, unrelated account projects, and all DNS records are outside this web inventory.
+Portfolio binding states were read from Cloudflare Pages → winesett → Custom domains. This records bindings, not an assumption that alternate domains redirect. Unrelated account projects and the full DNS inventory are outside this web inventory. Shared studio support mail is documented below.
 
 ## Product and existing path ownership
 
 | URL/path | Owner | Role / status |
 | --- | --- | --- |
-| `labs.winesett.com/fold-war/` | labs | Fold War, **From Winesett Labs**. Landing page live; app in development. No separate product domain. |
+| `labs.winesett.com/fold-war/` | labs | Fold War, **From Winesett Labs**. Landing page, `/support/`, and `/privacy/` owned here; app in development. `/foldwar` aliases redirect to `/fold-war/`. No separate product domain. |
 | `labs.winesett.com/experiments/` | labs | Earlier experiment collection; eight audited demo routes remain at their original paths. `public/labs.json` is their route inventory. |
 | `winesett.com/microsoft` | portfolio | Existing protected case-study route; preserve encrypted artifact and access behavior. |
 | `winesett.com/kindlemesh/` | portfolio | Existing device images and signed software artifacts; preserve paths and bytes. |
 
 Labs `studio-pages.json` owns the exact studio/product page list; it is separate from the audited demo registry. This table records cross-project ownership, not a second editable list of every demo.
+
+## Shared studio support email
+
+`support@winesett.com` forwards to `codywinesett@gmail.com` using Cloudflare Email Routing. Configured 2026-10-16: domain routing **Enabled**, exact support rule **Active**, destination previously verified. No catch-all rule is enabled. Cloudflare added its MX and SPF/DKIM records without reporting conflicting mail records.
+
+This is free incoming forwarding, not a paid mailbox. Replies sent normally from Gmail display the Gmail address. No Google Workspace, paid outbound email, or paid Workers plan was enabled. Existing domain registration renewals are separate from hosting and forwarding.
+
+Manage this in Cloudflare → Email Service → Email Routing → winesett.com. Keep the destination accurate and verify a real incoming message before relying on it for app launch; the saved rule and DNS state do not prove mailbox receipt. Fold War uses this shared support address; future Labs products can identify their product in the message subject.
 
 ## New entry checklist
 
