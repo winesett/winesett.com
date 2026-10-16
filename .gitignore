@@ -22,3 +22,9 @@ assets/work/trueblue-hero.jpg
 assets/work/trueblue-jobstack-demo.jpg
 assets/work/workforce-design-system.jpg
 assets/work/workforce-peopleready-live-site.jpg
+
+# Labs has its own repository; keep obsolete local previews out.
+/labs/
+
+# Generated Cloudflare Pages output
+/dist/

@@ -1,6 +1,6 @@
 # Status
 
-Status: Work in progress
+Status: Live; maintenance foundation completed 2026-10-16
 
 This repository currently contains the live portfolio site and Cloudflare Pages configuration.
 
@@ -8,7 +8,9 @@ This repository currently contains the live portfolio site and Cloudflare Pages 
 
 - Static `index.html` page.
 - Social preview imagery.
-- Cloudflare Pages assets configuration in `wrangler.jsonc`.
+- Cloudflare Pages project `winesett`, GitHub `main`, tracked website assets packaged into `dist/`.
+- Domain ownership and release steps in [the registry](domain-registry.md) and [runbook](project-runbook.md).
+- Winesett Labs maintained in its own sibling repository.
 - Archive notes in `ARCHIVE.md`.
 
 ## Manual GitHub tasks
