@@ -35,6 +35,7 @@ Portfolio binding states were read from Cloudflare Pages → winesett → Custom
 | URL/path | Owner | Role / status |
 | --- | --- | --- |
 | `labs.winesett.com/fold-war/` | labs | Fold War, **From Winesett Labs**. Landing page, `/support/`, and `/privacy/` owned here; app in development. `/foldwar` aliases redirect to `/fold-war/`. No separate product domain. |
+| `labs.winesett.com/relay/` | labs | **Planned** — Relay, From Winesett Labs. Marketing page and scroll-driven Echo Dot illustration in `labs.winesett.com/public/relay/`; prototype in development. Uses the existing `labs-winesett-com` Worker, `public/` assets, Workers Builds from `main` via `npm run deploy`, previews off, Free hosting. Prepared 2026-10-23; mark live only after the Git deployment and HTTPS are verified. |
 | `labs.winesett.com/experiments/` | labs | Earlier experiment collection; eight audited demo routes remain at their original paths. `public/labs.json` is their route inventory. |
 | `winesett.com/microsoft` | portfolio | Existing protected case-study route; preserve encrypted artifact and access behavior. |
 | `winesett.com/kindlemesh/` | portfolio | Existing device images and signed software artifacts; preserve paths and bytes. |
