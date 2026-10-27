@@ -14,6 +14,14 @@ Do not store credentials here. Paths below assume sibling GitHub checkouts.
 
 The portfolio's `wrangler.jsonc` identifies Pages project `winesett` and output `dist/`. `scripts/build-site.mjs` copies only tracked website files, excluding docs, Git history, ignored client sources, and local drafts. The previous root-output Worker-shaped config and unsupported `.pagesignore` have been retired.
 
+## Client preview hosting (planned)
+
+- Hostname: `demo.winesett.com`; owner: `winesett/demo.winesett.com`, sibling checkout `demo.winesett.com/`.
+- Hosting: Cloudflare Worker `demo-winesett-com`, Workers Free only, gated static assets in `public/`. Production branch: `main`; deploy: `npm run deploy`. Git auto-deployment is pending setup.
+- First preview: `/jschaeferlpa/`, a copy of Jim’s synthetic website demo. Root code entry routes to the client preview; no public client directory or email collection.
+- Server-side code gate covers every page and asset, signed seven-day sessions, per-IP attempt limits, and lock control. Codes and signing secret stay out of Git.
+- Status: **planned**, prepared 2026-10-27. Awaiting Cloudflare authentication, exact-hostname conflict check, Free-plan verification, and HTTPS deployment checks before marking live.
+
 ## Hostnames
 
 | Hostname | Owner | Purpose | Confirmed state | Verified |
