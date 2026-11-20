@@ -17,26 +17,30 @@
     header { border-bottom: 1px solid #cfcec6; }
     header strong { font-size: 1.2rem; letter-spacing: -.045em; }
     a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 4px; }
-    main { flex: 1; display: grid; grid-template-columns: 1.25fr 1fr; align-items: center; gap: 6vw; padding: 8vh 0; }
-    h1 { font-size: clamp(3.1rem, 7.5vw, 7.6rem); line-height: .96; letter-spacing: -.07em; margin: 0; font-weight: 550; }
+    main { flex: 1; padding: clamp(24px, 4vw, 64px) 0; }
+    h1 { font-size: clamp(2.5rem, 5.7vw, 5.8rem); line-height: .98; letter-spacing: -.07em; margin: 0 0 clamp(20px, 3vw, 40px); font-weight: 550; text-wrap: balance; }
     h1 em { font-family: Georgia, serif; font-weight: 400; }
-    .clock { position: relative; aspect-ratio: 1; width: min(100%, 440px); justify-self: center; border-radius: 50%; background: #efca54; }
-    .clock::before { content: ""; position: absolute; inset: 4%; border-radius: 50%; background: repeating-conic-gradient(#312e22 0 .5deg, transparent .5deg 6deg); mask: radial-gradient(circle closest-side, transparent 92%, black 93%); }
-    .hands { position: absolute; inset: 0; }
-    .hands::before, .hands::after { content: ""; position: absolute; bottom: 50%; left: 50%; width: 1.3%; height: 29%; background: #26251e; border-radius: 6px; transform-origin: bottom center; transform: translateX(-50%) rotate(-58deg); }
-    .hands::after { height: 39%; width: .85%; transform: translateX(-50%) rotate(58deg); }
+    video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; background: #0b0e12; }
     footer { border-top: 1px solid #cfcec6; font-size: .9rem; }
-    @media (max-width: 650px) {
-      main { grid-template-columns: 1fr; align-content: center; gap: 40px; padding: 48px 0; }
-      .clock { width: min(65vw, 300px); }
-    }
   </style>
 </head>
 <body>
   <header><strong>Winesett.com</strong><a href="https://labs.winesett.com/">Winesett Labs ↗</a></header>
   <main>
-    <h1>The <em>Time</em><br>Machine<br>Company</h1>
-    <div class="clock" aria-hidden="true"><span class="hands"></span></div>
+    <h1>The <em>Time</em> Machine Company</h1>
+    <video controls muted playsinline preload="metadata" poster="/assets/film/time-dial.jpg" width="1920" height="1080"
+      aria-label="Silent film. A boy turns a dial as the city outside his window transforms.">
+      <source media="(max-width: 700px)" src="/assets/film/time-dial-mobile.mp4" type="video/mp4">
+      <source media="(min-resolution: 2dppx) and (min-width: 1000px), (min-width: 1600px)" src="/assets/film/time-dial-4k.mp4" type="video/mp4">
+      <source src="/assets/film/time-dial-hd.mp4" type="video/mp4">
+      <a href="/assets/film/time-dial-4k.mp4">Watch the film in 4K</a>
+    </video>
+    <script>
+      const film = document.querySelector('video');
+      if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        film.play().catch(() => {});
+      }
+    </script>
   </main>
   <footer><span>Winesett</span><a href="mailto:codywinesett@gmail.com">Contact</a></footer>
 </body>
