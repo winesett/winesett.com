@@ -2,46 +2,44 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Winesett.com — The Time Machine Company</title>
-  <meta name="description" content="Winesett.com. The Time Machine Company.">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Winesett — The Time Machine Company</title>
+  <meta name="description" content="Winesett. The Time Machine Company.">
   <link rel="canonical" href="https://winesett.com/">
-  <meta property="og:title" content="Winesett.com — The Time Machine Company">
+  <meta property="og:title" content="Winesett — The Time Machine Company">
   <meta property="og:url" content="https://winesett.com/">
   <meta property="og:type" content="website">
+  <meta property="og:image" content="https://winesett.com/assets/prius-emo.webp">
   <style>
-    :root { color-scheme: light; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; color: #21211e; background: #f9f8f4; }
-    * { box-sizing: border-box; }
-    body { margin: 0 auto; width: min(1320px, 89%); min-height: 100svh; display: flex; flex-direction: column; }
-    header, footer { display: flex; justify-content: space-between; align-items: center; padding: 25px 0; gap: 16px; }
-    header { border-bottom: 1px solid #cfcec6; }
-    header strong { font-size: 1.2rem; letter-spacing: -.045em; }
-    a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 4px; }
-    main { flex: 1; padding: clamp(24px, 4vw, 64px) 0; }
-    h1 { font-size: clamp(2.5rem, 5.7vw, 5.8rem); line-height: .98; letter-spacing: -.07em; margin: 0 0 clamp(20px, 3vw, 40px); font-weight: 550; text-wrap: balance; }
-    h1 em { font-family: Georgia, serif; font-weight: 400; }
-    video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; background: #0b0e12; }
-    footer { border-top: 1px solid #cfcec6; font-size: .9rem; }
+    :root { color-scheme: dark; background: #040405; color: white; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
+    body { margin: 0; }
+    main { position: relative; isolation: isolate; display: grid; min-height: 100vh; min-height: 100dvh; }
+    picture { position: absolute; inset: 0; z-index: -1; }
+    img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 85% center; }
+    header { align-self: start; margin: 28vh max(6.6vw, env(safe-area-inset-left)); }
+    h1 { margin: 0; font-size: clamp(3rem, 5.8vw, 9rem); font-weight: 550; letter-spacing: -.055em; line-height: 1; }
+    p { margin: .36em 0 0; font-size: clamp(1rem, 2.15vw, 3rem); letter-spacing: -.025em; line-height: 1.2; color: #f2ece3; }
+    @media (max-aspect-ratio: 1/1) {
+      header { margin: max(12svh, env(safe-area-inset-top)) 7vw 0; }
+      h1 { font-size: clamp(3rem, 12vw, 6rem); }
+      p { font-size: clamp(1.15rem, 4.8vw, 2.35rem); }
+      img { object-position: 68% 67%; }
+    }
+    @media (min-aspect-ratio: 1/1) and (max-aspect-ratio: 3/2) {
+      header { margin-top: 9vh; }
+    }
   </style>
 </head>
 <body>
-  <header><strong>Winesett.com</strong><a href="https://labs.winesett.com/">Winesett Labs ↗</a></header>
   <main>
-    <h1>The <em>Time</em> Machine Company</h1>
-    <video controls muted playsinline preload="metadata" poster="/assets/film/time-dial.jpg" width="1920" height="1080"
-      aria-label="Silent film. A boy turns a dial as the city outside his window transforms.">
-      <source media="(max-width: 700px)" src="/assets/film/time-dial-mobile.mp4" type="video/mp4">
-      <source media="(min-resolution: 2dppx) and (min-width: 1000px), (min-width: 1600px)" src="/assets/film/time-dial-4k.mp4" type="video/mp4">
-      <source src="/assets/film/time-dial-hd.mp4" type="video/mp4">
-      <a href="/assets/film/time-dial-4k.mp4">Watch the film in 4K</a>
-    </video>
-    <script>
-      const film = document.querySelector('video');
-      if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        film.play().catch(() => {});
-      }
-    </script>
+    <picture>
+      <source media="(max-aspect-ratio: 1/1)" srcset="/assets/prius-emo-portrait.webp">
+      <img src="/assets/prius-emo.webp" alt="A black Prius time machine under a parking lot light, with a Kentucky plate reading EMO." fetchpriority="high">
+    </picture>
+    <header>
+      <h1>Winesett</h1>
+      <p>The Time Machine Company</p>
+    </header>
   </main>
-  <footer><span>Winesett</span><a href="mailto:codywinesett@gmail.com">Contact</a></footer>
 </body>
 </html>
