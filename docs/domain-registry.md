@@ -9,7 +9,7 @@ Do not store credentials here. Paths below assume sibling GitHub checkouts.
 
 | ID | Purpose | Source repository / local checkout | Hosting project | Production deployment | Cost policy |
 | --- | --- | --- | --- | --- | --- |
-| portfolio | Winesett parent identity and personal portfolio | [winesett/winesett.com](https://github.com/winesett/winesett.com) / `winesett.com/` | Cloudflare **Pages**, project **`winesett`** | GitHub `main`; build `node scripts/build-site.mjs`; output `dist/` | Free hosting; no paid upgrades or overages |
+| portfolio | Winesett company introduction and legacy portfolio routes | [winesett/winesett.com](https://github.com/winesett/winesett.com) / `winesett.com/` | Cloudflare **Pages**, project **`winesett`** | GitHub `main`; build `node scripts/build-site.mjs`; output `dist/` | Free hosting; no paid upgrades or overages |
 | labs | Winesett Labs studio, product landing pages, experiment distribution | [winesett/labs.winesett.com](https://github.com/winesett/labs.winesett.com) / `labs.winesett.com/` | Cloudflare **Worker**, **`labs-winesett-com`**, static assets only | Workers Builds, GitHub `main`, root `/`, no build command, deploy `npm run deploy`, assets `public/`; preview builds off | Workers Free; no paid upgrades or overages |
 
 The portfolio's `wrangler.jsonc` identifies Pages project `winesett` and output `dist/`. `scripts/build-site.mjs` copies only tracked website files, excluding docs, Git history, ignored client sources, and local drafts. The previous root-output Worker-shaped config and unsupported `.pagesignore` have been retired.
@@ -19,7 +19,7 @@ The portfolio's `wrangler.jsonc` identifies Pages project `winesett` and output 
 | Hostname | Owner | Purpose | Confirmed state | Verified |
 | --- | --- | --- | --- | --- |
 | `career.winesett.com` | [winesett/career.winesett.com](https://github.com/winesett/career.winesett.com) | Portfolio archive, Cloudflare Pages project `winesett-career`, branch `main`, static `public/`, free | Live, Git deployment and HTTPS verified | 2026-11-20 |
-| `winesett.com` | portfolio | Primary brand and portfolio | Active, SSL enabled | 2026-10-16 |
+| `winesett.com` | portfolio | Winesett · The Time Machine Company | Active, SSL enabled | 2026-10-16 |
 | `www.winesett.com` | portfolio | Existing alternate address | Active, SSL enabled | 2026-10-16 |
 | `codywinesett.com` | portfolio | Existing personal domain | Active, SSL enabled | 2026-10-16 |
 | `www.codywinesett.com` | portfolio | Existing personal domain | Active, SSL enabled | 2026-10-16 |
@@ -27,7 +27,7 @@ The portfolio's `wrangler.jsonc` identifies Pages project `winesett` and output 
 | `www.winesettdesign.com` | portfolio | Existing design domain | Active, SSL enabled | 2026-10-16 |
 | `proxyxr.com` | portfolio | Existing domain binding | Active, SSL enabled | 2026-10-16 |
 | `www.proxyxr.com` | portfolio | Existing domain binding | Active, SSL enabled | 2026-10-16 |
-| `labs.winesett.com` | labs | Creative studio | Live, HTTPS and Git deployment verified | 2026-10-16 |
+| `labs.winesett.com` | labs | Creative studio and Cody’s dated project timeline | Live, HTTPS and Git deployment verified | 2026-10-16 |
 
 Portfolio binding states were read from Cloudflare Pages → winesett → Custom domains. This records bindings, not an assumption that alternate domains redirect. Unrelated account projects and the full DNS inventory are outside this web inventory. Shared studio support mail is documented below.
 
