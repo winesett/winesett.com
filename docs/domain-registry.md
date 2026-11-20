@@ -18,6 +18,7 @@ The portfolio's `wrangler.jsonc` identifies Pages project `winesett` and output 
 
 | Hostname | Owner | Purpose | Confirmed state | Verified |
 | --- | --- | --- | --- | --- |
+| `career.winesett.com` | [winesett/career.winesett.com](https://github.com/winesett/career.winesett.com) | Portfolio archive, Cloudflare Pages project `winesett-career`, branch `main`, static `public/`, free | Live, Git deployment and HTTPS verified | 2026-11-20 |
 | `winesett.com` | portfolio | Primary brand and portfolio | Active, SSL enabled | 2026-10-16 |
 | `www.winesett.com` | portfolio | Existing alternate address | Active, SSL enabled | 2026-10-16 |
 | `codywinesett.com` | portfolio | Existing personal domain | Active, SSL enabled | 2026-10-16 |

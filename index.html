@@ -3,20 +3,20 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Cody Winesett | Product Design Leader</title>
-  <meta name="description" content="Product design leader building AI-assisted systems, teams, and digital products at scale.">
+  <title>Cody Winesett | Selected Work</title>
+  <meta name="description" content="A timeline of products, companies, and design work by Cody Winesett.">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Cody Winesett">
-  <meta property="og:title" content="Cody Winesett | Product Design Leader">
-  <meta property="og:description" content="Product design leader building AI-assisted systems, teams, and digital products at scale.">
+  <meta property="og:title" content="Cody Winesett | Selected Work">
+  <meta property="og:description" content="A timeline of products, companies, and design work by Cody Winesett.">
   <meta property="og:url" content="https://winesett.com/">
   <meta property="og:image" content="https://winesett.com/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Cody Winesett portfolio preview">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Cody Winesett | Product Design Leader">
-  <meta name="twitter:description" content="Product design leader building AI-assisted systems, teams, and digital products at scale.">
+  <meta name="twitter:title" content="Cody Winesett | Selected Work">
+  <meta name="twitter:description" content="A timeline of products, companies, and design work by Cody Winesett.">
   <meta name="twitter:image" content="https://winesett.com/og-image.png">
   <meta name="twitter:image:alt" content="Cody Winesett portfolio preview">
   <style>
@@ -706,6 +706,16 @@
         transition: none !important;
       }
     }
+    #work .work-image { min-height: 0; aspect-ratio: 16 / 9; }
+    #work .work-image--brand { background: #fff; }
+    #work .work-image--brand img { object-fit: contain; padding: 9%; }
+    .project-meta { color: var(--muted); font-size: .8rem; margin-bottom: .55rem; }
+    .project-title { display: flex; align-items: baseline; flex-wrap: wrap; gap: .45rem 1rem; }
+    .project-title h3 { font-size: clamp(1.65rem, 3vw, 2.45rem); letter-spacing: -.04em; }
+    .project-title span { color: var(--muted); font-variant-numeric: tabular-nums; font-size: .94rem; }
+    #work .work-copy p { color: var(--muted); font-size: 1rem; font-weight: 400; margin-top: .8rem; }
+    #work .work-item { padding-block: clamp(24px, 4vw, 50px); }
+    @media (max-width: 480px) { .site-nav { gap: 10px; font-size: .83rem; } }
   </style>
 </head>
 <body>
@@ -716,72 +726,91 @@
     <nav class="site-nav" aria-label="Primary navigation">
       <a href="#work">Work</a>
       <a href="#about">Bio</a>
+      <a href="https://career.winesett.com/">Career archive</a>
     </nav>
   </header>
 
   <main id="main">
     <section class="bio-hero">
-      <div class="bio-copy reveal-item">
-        <h1>Product <span class="marker-highlight">Design Leader</span></h1>
-        <span class="pen-layer" aria-hidden="true"><svg viewBox="0 0 184 24"><path d="M4 14 C46 13 86 11 128 14 C146 15 165 16 180 13"></path></svg></span>
-        <span class="pen-layer" aria-hidden="true"><svg class="pen-note-arrow" viewBox="0 0 62 38"><path d="M3 6 C16 29 38 33 58 19"></path><path d="M50 16 L59 19 L54 28"></path></svg></span>
-        <img class="pen-note" src="./assets/annotations/note-impact.png" alt="" aria-hidden="true">
-        <p>I build products and teams that reach billions of users. From the delivery system behind Microsoft.com to a commerce platform serving millions of FedEx consumers, across hundreds of brands and web products.<br>Now I&rsquo;m using AI to change how that work gets done.</p>
-      </div>
-    </section>
-
-    <section class="section logo-section" aria-labelledby="teams-heading">
-      <h2 id="teams-heading">Teams I&rsquo;ve worked with</h2>
-      <span class="pen-layer" aria-hidden="true">
-        <svg class="pen-circle" viewBox="0 0 212 78"><path d="M110 5 C158 6 207 25 204 44 C201 65 150 76 92 72 C38 68 5 56 8 37 C11 17 52 3 110 5"></path></svg>
-        <svg class="pen-burst" viewBox="0 0 28 44"><path class="pen-light" d="M22 4 L17 15"></path><path class="pen-light" d="M9 10 L16 19"></path><path class="pen-light" d="M3 25 L14 25"></path></svg>
-      </span>
-      <div class="logo-grid">
-        <img src="./assets/work/microsoft-logo.png" alt="Microsoft">
-        <img src="./assets/work/copilot-logo.png" alt="Microsoft Copilot">
-        <img src="./assets/work/fedex-logo.png" alt="FedEx">
-        <img src="./assets/work/peopleready-logo.png" alt="PeopleReady">
-        <img src="./assets/work/senco-logo.png" alt="SENCO">
+      <div class="bio-copy">
+        <h1>A life in <span class="marker-highlight">design</span></h1>
+        <p>I’m Cody Winesett. I started by designing catalogs and packaging for power tools. Since then I’ve led product teams, founded a company, and built my own apps at Winesett Labs.</p>
       </div>
     </section>
 
     <section id="work" class="section" aria-labelledby="work-heading">
       <h2 id="work-heading">Selected work</h2>
       <div class="work-list">
-        <article class="work-item reveal-item">
-          <div class="work-image" aria-hidden="true">
-            <img src="./assets/work/microsoft-work-artifact.png" alt="">
-          </div>
+        <article class="work-item">
+          <div class="work-image"><img src="./assets/work/orikata.jpg" loading="lazy" alt=""></div>
           <div class="work-copy">
-            <h3>Microsoft.com</h3>
-            <p>Building the AI-assisted design engine behind <span class="marker-highlight">1,000+ Microsoft.com pages</span></p>
-            <p>I built a global UX delivery operation from nothing: reusable design accelerators, distributed leadership, and an AI-assisted production workflow that cut production time by 75% while the team supported twice the year-over-year workload.</p>
+            <div class="project-meta">From Winesett Labs</div>
+            <div class="project-title"><h3>Orikata</h3><span>2026</span></div>
+            <p>A paper-folding practice for iPhone. Follow an origami lesson, fold along with real paper, and keep a shelf of the pieces you make.</p>
+            <a class="work-cta" href="https://labs.winesett.com/orikata/">Explore Orikata &rarr;</a>
+          </div>
+        </article>
+        <article class="work-item">
+          <div class="work-image work-image--brand"><img src="./assets/work/relay.jpg" loading="lazy" alt=""></div>
+          <div class="work-copy">
+            <div class="project-meta">From Winesett Labs</div>
+            <div class="project-title"><h3>Relay</h3><span>2026</span></div>
+            <p>I built a hackathon concept that lets Alexa+ send a question to Grok, Muse, or Dot and bring the answer back into the conversation.</p>
+            <a class="work-cta" href="https://labs.winesett.com/relay/">Explore Relay &rarr;</a>
+          </div>
+        </article>
+        <article class="work-item">
+          <div class="work-image"><img src="./assets/work/fold-war.webp" loading="lazy" alt=""></div>
+          <div class="work-copy">
+            <div class="project-meta">From Winesett Labs</div>
+            <div class="project-title"><h3>Fold War</h3><span>2026</span></div>
+            <p>Naval Duel and tic-tac-toe for iPhone. I designed the games for solo play or a match with a friend on a second device.</p>
+            <a class="work-cta" href="https://labs.winesett.com/foldwar/">Explore Fold War &rarr;</a>
+          </div>
+        </article>
+        <article class="work-item">
+          <div class="work-image work-image--brand"><img src="./assets/work/lilagents.png" loading="lazy" alt=""></div>
+          <div class="work-copy">
+            <div class="project-meta">Solo founder</div>
+            <div class="project-title"><h3>lilAgents</h3><span>2025</span></div>
+            <p>I founded lilAgents and later sold the company to its current owners.</p>
+            <a class="work-cta" href="https://www.linkedin.com/company/lilagents/">lilAgents on LinkedIn &rarr;</a>
+          </div>
+        </article>
+        <article class="work-item">
+          <div class="work-image"><img src="./assets/work/microsoft-work-artifact.png" loading="lazy" alt=""></div>
+          <div class="work-copy">
+            <div class="project-meta">Global UX Manager at Revel</div>
+            <div class="project-title"><h3>Microsoft.com</h3><span>2022–2025</span></div>
+            <p>I built the design operation behind 1,000+ Microsoft.com pages. Reusable design tools and an AI-assisted workflow cut production time by 75% as the team handled twice the workload.</p>
             <a class="work-cta" href="./microsoft.html">View case study &rarr;</a>
           </div>
         </article>
-
-        <article class="work-item reveal-item">
-          <img class="pen-note" src="./assets/annotations/note-millions.png" alt="" aria-hidden="true">
-          <div class="work-image" aria-hidden="true">
-            <img src="./assets/work/fedex-work-artifact.png" alt="">
-          </div>
+        <article class="work-item">
+          <div class="work-image"><img src="./assets/work/fedex-work-artifact.png" loading="lazy" alt=""></div>
           <div class="work-copy">
-            <h3>FedEx fdx</h3>
-            <p>Leading design on a commerce platform now reaching<span class="desktop-break"> </span><span class="marker-highlight">millions of consumers</span></p>
-            <p>I led design from ideation to MVP on FedEx&rsquo;s fdx platform, a data-driven commerce product built to connect merchants to the full FedEx network. Research, personas, design system, end to end.</p>
-            <span class="work-cta">Case study available on request</span>
+            <div class="project-meta">Global UX Manager at Revel</div>
+            <div class="project-title"><h3>FedEx fdx</h3><span>2022–2025</span></div>
+            <p>I led design from the first merchant research to a returns-portal MVP, translating shipping workflows into onboarding, dashboards, and reusable product patterns.</p>
+            <a class="work-cta" href="mailto:codywinesett@gmail.com?subject=FedEx%20case%20study">Request case study &rarr;</a>
           </div>
         </article>
-
-        <article class="work-item reveal-item">
-          <div class="work-image" aria-hidden="true">
-            <img src="./assets/work/trueblue-work-artifact.png" alt="">
-          </div>
+        <article class="work-item">
+          <div class="work-image"><img src="./assets/work/trueblue-work-artifact.png" loading="lazy" alt=""></div>
           <div class="work-copy">
-            <h3>TrueBlue</h3>
-            <p>Connecting half a million people to work every year</p>
-            <p>I built the design system and products behind PeopleReady, Centerline, and JobStack: three workforce platforms sharing one foundation, shipped fast and scaled across a distributed workforce.</p>
-            <span class="work-cta">Case study available on request</span>
+            <div class="project-meta">Senior UX Designer</div>
+            <div class="project-title"><h3>TrueBlue</h3><span>2017–2021</span></div>
+            <p>I built a shared design system for PeopleReady, Centerline, and JobStack, connecting the experiences people use to find work, hire a team, and manage shifts.</p>
+            <a class="work-cta" href="mailto:codywinesett@gmail.com?subject=TrueBlue%20case%20study">Request case study &rarr;</a>
+          </div>
+        </article>
+        <article class="work-item">
+          <div class="work-image"><img src="./assets/work/senco-website.jpg" loading="lazy" alt=""></div>
+          <div class="work-copy">
+            <div class="project-meta">Visual Designer</div>
+            <div class="project-title"><h3>SENCO</h3><span>2013–2019</span></div>
+            <p>I led the redesign of SENCO.com and designed product catalogs, packaging, and retail displays for the tools people saw on the site.</p>
+            <a class="work-cta" href="./assets/work/senco-website.jpg">View original website artwork &rarr;</a>
           </div>
         </article>
       </div>
