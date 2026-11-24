@@ -19,9 +19,9 @@
     header { align-self: start; margin: 28vh max(6.6vw, env(safe-area-inset-left)); }
     h1 { margin: 0; font-size: clamp(3rem, 5.8vw, 9rem); font-weight: 550; letter-spacing: -.055em; line-height: 1; }
     p { margin: .36em 0 0; font-size: clamp(1rem, 2.15vw, 3rem); letter-spacing: -.025em; line-height: 1.2; color: #f2ece3; }
-    .labs-link { display: inline-flex; align-items: center; gap: .65em; min-height: 44px; margin-top: .65rem; color: inherit; font-weight: 550; text-decoration-thickness: 1px; text-underline-offset: .24em; }
-    .labs-link:hover { color: #ffdfa9; }
-    .labs-link:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
+    .labs-link { display: inline-flex; align-items: center; min-height: 44px; margin-top: 1rem; padding: 0 1.25rem; border-radius: 999px; background: #f2ece3; color: #171513; font-size: .9375rem; font-weight: 600; text-decoration: none; }
+    .labs-link:hover { background: #fff; }
+    .labs-link:focus-visible { outline: 2px solid #fff; outline-offset: 4px; }
     @media (max-aspect-ratio: 1/1) {
       header { margin: max(12svh, env(safe-area-inset-top)) 7vw 0; }
       h1 { font-size: clamp(3rem, 12vw, 6rem); }
@@ -42,7 +42,7 @@
     <header>
       <h1>Winesett</h1>
       <p>The Time Machine Company</p>
-      <a class="labs-link" href="https://labs.winesett.com/">Explore Winesett Labs <span aria-hidden="true">→</span></a>
+      <a class="labs-link" href="https://labs.winesett.com/">Explore Winesett Labs</a>
     </header>
   </main>
 </body>
